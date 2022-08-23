@@ -1,10 +1,12 @@
-import {Navbar} from "./components";
+import {Navbar, SearchAndFilter, CountriesWrap} from "./layout";
+
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      <h1>App#1</h1>
+      <SearchAndFilter/>
+      <CountriesWrap/>
     </div>
   );
 }

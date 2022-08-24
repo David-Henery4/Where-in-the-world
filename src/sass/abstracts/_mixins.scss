@@ -1,0 +1,19 @@
+
+
+@mixin respon ($breakpoint) {
+    @if ($breakpoint == tab) { // 666px
+        @media(min-width: 41.6em){
+            @content
+        }
+    };
+    @if ($breakpoint == lrgDesk) { // 1295px
+        @media(min-width: 80.9em){
+            @content
+        }
+    };
+    @if ($breakpoint == xldesk) { // 1349px
+        @media(min-width: 84.3em){
+            @content
+        }
+    };
+}

@@ -1,0 +1,26 @@
+.search{
+    width: 100%;
+    max-width: 445px;
+    height: 48px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    &-icon{
+        width: 15%;
+        // padding: 0px 25px;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        &__icon{
+            font-size: 1.5rem;
+        }
+    }
+    &__input{
+        font-size: 1.1rem;
+        border: none;
+        width: 85%;
+        height: 100%;
+        outline: none;
+    }
+}

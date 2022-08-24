@@ -1,0 +1,31 @@
+.navbar{
+    width: 100%;
+    border-bottom: 2px solid black;
+    //
+    &-content{
+    width: 100%;
+    max-width: 1349px;
+    margin: 0 auto;
+    height: 13vh;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    //
+    &__logo{
+        font-size: 1.3rem;
+        font-weight: 800;
+    }
+    // 
+    &-mode{
+        font-size: 1.3rem;
+        font-weight: 600;
+        &__icon{
+            margin-right: 10px;
+        }
+        &__status{
+            display: inline;
+        }
+    }
+}

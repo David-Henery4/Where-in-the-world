@@ -1,11 +1,14 @@
 import React from 'react'
-import {SearchInput, Filter} from "../components"
+import {SearchInput, Filter, BackBtn} from "../components"
+
+// BTN RENDERED ON THE PAGE CHANGE.
 
 const SearchAndFilter = () => {
     return (
         <div className='search-filter-container'>
-            <SearchInput/>
-            <Filter/>
+            {/* <SearchInput/>
+            <Filter/> */}
+            <BackBtn/> 
         </div>
     )
 }

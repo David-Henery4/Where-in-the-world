@@ -4,13 +4,18 @@
     //
     &-content{
     width: 100%;
-    max-width: 1349px;
     margin: 0 auto;
     height: 13vh;
     padding: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include respon (tab){
+        max-width: 666px;
+        }
+    @include respon (smllap){
+        max-width: 1349px;
+    }
     }
     //
     &__logo{

@@ -9,11 +9,11 @@
     gap: 40px;
     @include respon (tab){
         flex-direction: row;
-        max-width: none;
-        margin: auto;
+        max-width: 666px;
+        margin: 0 auto;
         padding: 4rem 1.5rem;
     }
-    @include respon (xldesk){
+    @include respon (smllap){
         max-width: 1349px;
     }
 }

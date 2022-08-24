@@ -1,4 +1,4 @@
-import {Navbar, SearchAndFilter, CountriesWrap} from "./layout";
+import {Navbar, SearchAndFilter, CountriesWrap, CountryDetails} from "./layout";
 
 
 function App() {
@@ -6,7 +6,8 @@ function App() {
     <div className="App">
       <Navbar/>
       <SearchAndFilter/>
-      <CountriesWrap/>
+      <CountryDetails/>
+      {/* <CountriesWrap/> */}
     </div>
   );
 }

@@ -1,0 +1,20 @@
+.back{
+    &__btn{
+        background-color: transparent;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 3px  2.5rem;
+        display: inline-flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 600;
+        // vertical-align: middle;
+        // display: inline-block;
+        
+    }
+    &__icon{
+        font-size: 25px;
+        // vertical-align: middle;
+        // display: inline-block;
+    }
+}

@@ -6,6 +6,11 @@
             @content
         }
     };
+    @if ($breakpoint == smllap){ // 920px
+        @media(min-width: 57.5em){
+            @content
+        }
+    };
     @if ($breakpoint == lrgDesk) { // 1295px
         @media(min-width: 80.9em){
             @content

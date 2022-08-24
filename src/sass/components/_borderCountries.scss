@@ -1,0 +1,33 @@
+.border-countries{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @include respon (smllap){
+        flex-direction: row;
+        grid-column: 1/-1;
+        width: 100%;
+    }
+    &__title{
+        font-size: 1.1rem;
+        @include respon (smllap){
+            width: 25%;
+        }
+    }
+    &-btns{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px,100px));
+        gap: 10px;
+        @include respon (smllap){
+            width: 75%;
+        }
+    }
+    &__btn{
+        background-color: transparent;
+        border: 1px solid black;
+        border-radius: 2px;
+        // min-width: 100px;
+        height: 26px;
+        font-size: .8rem;
+        // padding: 5px 10px;
+    }
+}

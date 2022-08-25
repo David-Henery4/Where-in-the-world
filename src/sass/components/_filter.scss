@@ -16,6 +16,8 @@
     }
     &-options{
         width: 100%;
+        z-index: 5;
+        background-color: $white;
         position: absolute;
         top: 0;
         left: 0;
@@ -28,6 +30,10 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-        display: none; // temp
+        div{
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
 }

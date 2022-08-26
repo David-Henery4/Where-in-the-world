@@ -13,13 +13,16 @@ const overallSlice = createSlice({
         toggleFilterMenu: (state) => {
             state.isFilterMenuActive = !state.isFilterMenuActive
         },
+        closeFilterMenu: (state) => {
+            state.isFilterMenuActive = false
+        },
     },
     extraReducers: {
         
     }
 });
 
-export const {toggleFilterMenu} = overallSlice.actions
+export const {toggleFilterMenu, closeFilterMenu} = overallSlice.actions
 
 export default overallSlice.reducer
 

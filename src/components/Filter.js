@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFilterMenu } from '../toolkit/features/overall/overallSlice';
+import { toggleFilterMenu, closeFilterMenu } from '../toolkit/features/overall/overallSlice';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 // ADD CLEAR FILTER BTN TO THE OPTIONS!!!!!!
@@ -20,9 +20,12 @@ const Filter = () => {
   };
   //
   useEffect(() => {
+    // trying to close when not clicking the filters
+    // also set up close when going to single page.
     document.body.addEventListener("click", (e) => {
       if (e.target.closest(".filter") || e.target.closest(".filter-options")){
-        console.log("yes")
+        // dispatch(closeFilterMenu())
+        // console.log("string")
       }
       // console.log("no")
     })
@@ -54,6 +57,12 @@ const Filter = () => {
           <div className="option">Asia</div>
           <div className="option">Europe</div>
           <div className="option">Oceania</div>
+          <button
+            className="filter-options__reset"
+            onClick={() => setFilterValue("")}
+          >
+            Reset
+          </button>
         </div>
       )}
     </div>

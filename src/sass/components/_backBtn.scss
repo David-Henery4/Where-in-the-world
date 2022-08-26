@@ -1,4 +1,7 @@
 .back{
+    &:hover{
+        cursor: pointer;
+    }
     &__btn{
         background-color: transparent;
         border: 1px solid black;

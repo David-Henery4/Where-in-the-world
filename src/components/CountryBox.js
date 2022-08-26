@@ -1,16 +1,17 @@
 import React from 'react'
 import dummyFlag from "../image/canada-flag.jpg"
 
-const CountryBox = ({id,name,flag,population,region,capital}) => {
+const CountryBox = ({name,flags,population,region,capital}) => {
+  
   return (
     <div className="country-box">
       <div className="country-box-image">
-        <img src={flag} alt="country-flag" />
+        <img src={flags.png} alt="country-flag" />
       </div>
       <article className="country-box-info">
-        <h2>{name}</h2>
+        <h2>{name.common}</h2>
         <p>
-          <span>Population:</span> {population}
+          <span>Population:</span> {population.toLocaleString()}
         </p>
         <p>
           <span>Region:</span> {region}

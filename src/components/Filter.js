@@ -22,18 +22,18 @@ const Filter = () => {
   useEffect(() => {
     // trying to close when not clicking the filters
     // also set up close when going to single page.
-    document.body.addEventListener("click", (e) => {
-      if (e.target.closest(".filter") || e.target.closest(".filter-options")){
-        // dispatch(closeFilterMenu())
-        // console.log("string")
-      }
-      // console.log("no")
-    })
-    return () => {
-      document.body.removeEventListener("click", (e) => {
-        console.log(e.target);
-      });
-    }
+    // document.body.addEventListener("click", (e) => {
+    //   if (e.target.closest(".filter") || e.target.closest(".filter-options")){
+    //     // dispatch(closeFilterMenu())
+    //     // console.log("string")
+    //   }
+    //   // console.log("no")
+    // })
+    // return () => {
+    //   document.body.removeEventListener("click", (e) => {
+    //     console.log(e.target);
+    //   });
+    // }
   }, [])
   //
   return (

@@ -14,7 +14,7 @@ const CountryDetails = () => {
     useEffect(() => {
         dispatch(getSingleCountryData(name))
         // getSingleCountry()
-    },[])
+    },[name])
     //
     return (
       <div className="current-country">

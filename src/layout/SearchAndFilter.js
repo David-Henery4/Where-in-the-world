@@ -7,14 +7,13 @@ import { useLocation, Link } from 'react-router-dom'
 const SearchAndFilter = () => {
     const [filterActive, setFilterActive] = useState(true)
     let location = useLocation();
-    // need to fix country path needs id.
     const home = location.pathname === "/";
-    const country = location.pathname === "/country/:id";
+    const country = location.pathname.includes("country")
     //
     useEffect(() => {
-      if (home) setFilterActive(true);
-      if (country) setFilterActive(false);
-      // eslint-disable-next-line
+        if (home) setFilterActive(true);
+        if (country) setFilterActive(false);
+        // eslint-disable-next-line
     },[location.pathname])
     // 
     return (

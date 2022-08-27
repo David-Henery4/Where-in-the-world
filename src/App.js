@@ -4,8 +4,6 @@ import {useDispatch} from "react-redux";
 import { getAllCountries } from './toolkit/features/overall/overallSlice';
 import { useEffect } from "react";
 
-
-
 function App() {
   const dispatch = useDispatch()
   //

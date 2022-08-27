@@ -1,13 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 import {Navbar, SearchAndFilter, CountriesWrap, CountryDetails} from "./layout";
 import {useDispatch} from "react-redux";
-// import { getAllCountries } from '../toolkit/features/overall/overallSlice';
+import { getAllCountries } from './toolkit/features/overall/overallSlice';
+import { useEffect } from "react";
 
 
 
 function App() {
-
-
+  const dispatch = useDispatch()
+  //
+  useEffect(() => {
+    dispatch(getAllCountries())
+  }, [])
+  //
   return (
     <div className="App">
       <BrowserRouter>
@@ -15,7 +20,7 @@ function App() {
         <SearchAndFilter/>
         <Routes>
           <Route path="/" element={<CountriesWrap/>}/>
-          <Route path="country/:id" element={<CountryDetails/>}/>
+          <Route path="country/:name" element={<CountryDetails/>}/>
           {/* <CountryDetails/> */}
           {/* <CountriesWrap/> */}
         </Routes>

@@ -1,35 +1,39 @@
 import React, { useEffect } from 'react'
 import { BorderCountries, CountryInfo } from '../components';
 import dummyFlag from "../image/canada-flag.jpg";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {useParams} from "react-router-dom";
+import { getSingleCountryData } from '../toolkit/features/overall/overallSlice';
 
 const CountryDetails = () => {
-    const {id} = useParams()
-    const { allCountriesData } = useSelector((store) => store.overall);
-    
-    const getSingleCountry = () => {
-        const currentCountry = allCountriesData.find(c => c.id === id)
-        console.log(currentCountry)
-        // console.log(allCountriesData)
-    }
-
+    const dispatch = useDispatch()
+    const {name} = useParams()
+    const { singleCountryData } = useSelector((store) => store.overall);
+    //
+    //
     useEffect(() => {
-        getSingleCountry()
-    },[id])
-
+        dispatch(getSingleCountryData(name))
+        // getSingleCountry()
+    },[])
+    //
     return (
-        <div className="current-country">
-            <div className="current-country__flag">
-                <img src={dummyFlag} alt="selected-country-flag"/>
-            </div>
-            <div className="current-country-info">
-                <h2>Belgium</h2>
-                <CountryInfo/>
-                <BorderCountries/>
-            </div>
+      <div className="current-country">
+        <div className="current-country__flag">
+          <img
+            src={
+              Object.entries(singleCountryData).length &&
+              singleCountryData.flags.svg
+            }
+            alt="selected-country-flag"
+          />
         </div>
-    )
+        <div className="current-country-info">
+          <h2>{singleCountryData.name && singleCountryData.name.official}</h2>
+          <CountryInfo {...singleCountryData} />
+          <BorderCountries borders={singleCountryData.borders} />
+        </div>
+      </div>
+    );
 }
 
 export default CountryDetails

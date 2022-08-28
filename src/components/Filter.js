@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFilterMenu, closeFilterMenu } from '../toolkit/features/overall/overallSlice';
+import { toggleFilterMenu, closeFilterMenu, filterCountries } from '../toolkit/features/overall/overallSlice';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 // ADD CLEAR FILTER BTN TO THE OPTIONS!!!!!!
@@ -18,6 +18,10 @@ const Filter = () => {
     if (!e.target.closest(".option")) return
     setFilterValue(e.target.innerText);
   };
+  //
+  useEffect(() => {
+    dispatch(filterCountries(filterValue));
+  }, [filterValue])
   //
   useEffect(() => {
     // trying to close when not clicking the filters
@@ -53,7 +57,7 @@ const Filter = () => {
       {isFilterMenuActive && (
         <div className="filter-options" onClick={(e) => selectFilterValue(e)}>
           <div className="option">Africa</div>
-          <div className="option">North America</div>
+          <div className="option">Americas</div>
           <div className="option">Asia</div>
           <div className="option">Europe</div>
           <div className="option">Oceania</div>

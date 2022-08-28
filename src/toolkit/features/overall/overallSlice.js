@@ -8,7 +8,9 @@ const initialState = {
     isDarkMode: false,
     isLoading: false,
     isFilterMenuActive: false,
+    isFilterActive: false,
     allCountriesData: [],
+    filteredCountriesData: [],
     singleCountryData: {},
     singleCountryBorders: [],
     searchedCountries: [],
@@ -41,6 +43,18 @@ const overallSlice = createSlice({
         closeFilterMenu: (state) => {
             state.isFilterMenuActive = false
         },
+        filterCountries: (state, {payload}) => {
+            if (payload){
+                const copy = state.allCountriesData.slice()
+                const filteredArray = copy.filter(c => c.region === payload)
+                state.filteredCountriesData = filteredArray
+                state.isFilterActive = true
+            }
+            //
+            if (!payload){
+                state.isFilterActive = false
+            }
+        }
     },
     extraReducers: {
         //
@@ -148,7 +162,7 @@ const overallSlice = createSlice({
     }
 });
 
-export const {toggleFilterMenu, closeFilterMenu} = overallSlice.actions
+export const {toggleFilterMenu, closeFilterMenu, filterCountries} = overallSlice.actions
 
 export default overallSlice.reducer
 

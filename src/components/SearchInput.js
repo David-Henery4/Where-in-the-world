@@ -7,10 +7,17 @@ const SearchInput = () => {
   const dispatch = useDispatch()
   const [searchValue, setSearchValue] = useState("")
   //
-  // const handleSearchSubmit = (e) => {
-  //   e.preventDefault()
-  //   dispatch(getCountriesBySearch(searchValue))
-  // }
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+    // might have for the returning from single page search issue
+    // if (searchValue === "") {
+    //   dispatch(getAllCountries());
+    //   console.log("All countries");
+    // }
+    // if (searchValue) {
+    //   dispatch(getCountriesBySearch(searchValue));
+    // }
+  }
   //
   const handleSearch = (searchQuery) => {
     if (searchQuery === "") {
@@ -26,11 +33,11 @@ const SearchInput = () => {
     <div className="search">
       
       <div className="search-icon">
-      <BsSearch className="search-icon__icon" />
+      <BsSearch className="search-icon__icon" onClick={handleSearchSubmit}/>
       </div>
       
       <form onSubmit={(e) => {
-        // handleSearchSubmit(e);
+        handleSearchSubmit(e);
       }} className="search__form">
         <input
           className="search__input"

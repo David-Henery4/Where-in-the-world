@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
 import baseFetch from "../../../data/baseUrl";
-import { fetchAllCountries, fetchSingleCountryData, fetchBordersFullName } from "../../../data";
+import { fetchAllCountries, fetchSingleCountryData } from "../../../data";
 import { v4 as uuid } from "uuid";
 
 const initialState = {
@@ -20,8 +20,6 @@ const initialState = {
 export const getAllCountries = createAsyncThunk("countries/getAllCountries", fetchAllCountries)
 
 export const getSingleCountryData = createAsyncThunk("countries/getSingleCountryData", fetchSingleCountryData)
-
-export const getBordersFullName = createAsyncThunk("countries/getBordersFullName", fetchBordersFullName)
 
 export const getCountriesBySearch = createAsyncThunk("countries/getCountriesBySearch", async (searchQuery, {rejectWithValue}) => {
     try {
@@ -91,6 +89,7 @@ const overallSlice = createSlice({
             state.isLoading = true
         },
         [getSingleCountryData.fulfilled]: (state, {payload}) => {
+            // console.log(payload)
             state.isLoading = false
             const {
                 flags,
@@ -99,11 +98,12 @@ const overallSlice = createSlice({
                 region,
                 subregion,
                 capital,
-                borders,
                 tld,
                 currencies,
                 languages,
             } = payload[0];
+            const bordersInfo = payload.filter((_,i) => i > 0)
+            // console.log(bordersInfo)
             state.singleCountryData = {
                 flags,
                 name,
@@ -111,26 +111,13 @@ const overallSlice = createSlice({
                 region,
                 subregion,
                 capital,
-                borders,
                 tld,
                 currencies,
                 languages,
+                bordersInfo
             };
         },
         [getSingleCountryData.rejected]: (state) => {
-            state.isLoading = false
-        },
-        //
-        // Get Borders fullname (NEED TO DISPATCH)
-        //
-        [getBordersFullName.pending]: (state) => {
-            // state.isLoading = true // could be temp
-        },
-        [getBordersFullName.fulfilled]: (state, {payload}) => {
-            state.isLoading = false;
-            state.singleCountryBorders = payload
-        },
-        [getBordersFullName.rejected]: (state) => {
             state.isLoading = false
         },
         //

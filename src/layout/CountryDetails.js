@@ -8,18 +8,14 @@ import { getSingleCountryData } from '../toolkit/features/overall/overallSlice';
 const CountryDetails = () => {
   const location = useLocation()
   const {borders} = location.state
-  console.log(borders)
     const dispatch = useDispatch()
     const {name} = useParams()
     const { singleCountryData, isLoading } = useSelector(
       (store) => store.overall
     );
     //
-    //**BORDERS CAUSE INFINTE LOOP WITH "ISLOADING" */
-    //
     useEffect(() => {
-      dispatch(getSingleCountryData(name))
-      // getSingleCountry()
+      dispatch(getSingleCountryData({name, borders}))
     },[name])
     //
     return (
@@ -38,11 +34,11 @@ const CountryDetails = () => {
         <div className="current-country-info">
           <h2>{singleCountryData.name && singleCountryData.name.official}</h2>
           <CountryInfo {...singleCountryData} />
-          <BorderCountries borders={singleCountryData.borders} />
+          <BorderCountries borders={singleCountryData.bordersInfo} />
         </div>
       </div>
         }
-            </div>
+      </div>
     );
 }
 

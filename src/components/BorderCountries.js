@@ -9,7 +9,7 @@ const BorderCountries = ({borders}) => {
     const dispatch = useDispatch()
     //
     useEffect(() => {
-        dispatch(getBordersFullName(borders))
+      dispatch(getBordersFullName(borders))
     }, [borders])
     //
     return (

@@ -68,12 +68,13 @@ const overallSlice = createSlice({
             // console.log(payload)
             payload.forEach((country) => {
                 const newCountries = {
-                    name: country.name,
-                    id: uuid(),
-                    population: country.population,
-                    capital: country.capital,
-                    region: country.region,
-                    flags: country.flags,
+                  name: country.name,
+                  id: uuid(),
+                  population: country.population,
+                  capital: country.capital,
+                  region: country.region,
+                  flags: country.flags,
+                  borders: country.borders,
                 };
                 allCountries.push(newCountries)
             })
@@ -123,7 +124,7 @@ const overallSlice = createSlice({
         // Get Borders fullname (NEED TO DISPATCH)
         //
         [getBordersFullName.pending]: (state) => {
-            state.isLoading = true
+            // state.isLoading = true // could be temp
         },
         [getBordersFullName.fulfilled]: (state, {payload}) => {
             state.isLoading = false;

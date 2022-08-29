@@ -4,6 +4,7 @@ import CountryBox from "./CountryBox"
 import BackBtn from "./BackBtn"
 import CountryInfo from "./CountryInfo"
 import BorderCountries from "./BorderCountries"
+import LoadingPage from "./LoadingPage"
 
 export {
     SearchInput,
@@ -12,4 +13,5 @@ export {
     BackBtn,
     CountryInfo,
     BorderCountries,
+    LoadingPage,
 }

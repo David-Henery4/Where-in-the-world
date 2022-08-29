@@ -1,7 +1,7 @@
-import { fetchAllCountries, fetchSingleCountryData, fetchBordersFullName} from "./fetchFunctions";
+import { fetchAllCountries, fetchSingleCountryData,fetchCountriesBySearch} from "./fetchFunctions";
 
 export {
     fetchAllCountries,
     fetchSingleCountryData,
-    fetchBordersFullName,
+    fetchCountriesBySearch,
 }

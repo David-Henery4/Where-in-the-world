@@ -27,11 +27,12 @@ const CountriesWrap = () => {
         <div className="countries-wrap">
           {allCountriesData.length > 0 &&
             checkForFilter().map((temp, i) => {
-              const {borders} = temp
+              const { borders, ccn3 } = temp;
+              console.log(ccn3);
               return (
                 <Link
                   className="countries-link-style"
-                  to={`/country/${temp.name.official}`}
+                  to={`/country/${temp.name.common}`}
                   state={{borders}}
                   key={temp.id}
                 >

@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios"
-import baseFetch from "../../../data/baseUrl";
-import { fetchAllCountries, fetchSingleCountryData } from "../../../data";
+import { fetchAllCountries, fetchSingleCountryData, fetchCountriesBySearch } from "../../../data";
 import { v4 as uuid } from "uuid";
 
 const initialState = {
@@ -16,20 +14,11 @@ const initialState = {
     searchedCountries: [],
 }
 
-
 export const getAllCountries = createAsyncThunk("countries/getAllCountries", fetchAllCountries)
 
 export const getSingleCountryData = createAsyncThunk("countries/getSingleCountryData", fetchSingleCountryData)
 
-export const getCountriesBySearch = createAsyncThunk("countries/getCountriesBySearch", async (searchQuery, {rejectWithValue}) => {
-    try {
-        const res = await baseFetch(`name/${searchQuery}?fields=name,population,flags,region,capital`);
-        return res.data
-    } catch (error) {
-        return rejectWithValue(error.response.data)
-    }
-});
-
+export const getCountriesBySearch = createAsyncThunk("countries/getCountriesBySearch", fetchCountriesBySearch);
 
 const overallSlice = createSlice({
     name: "overall",
@@ -73,6 +62,7 @@ const overallSlice = createSlice({
                   region: country.region,
                   flags: country.flags,
                   borders: country.borders,
+                  ccn3: country.ccn3,
                 };
                 allCountries.push(newCountries)
             })
@@ -89,32 +79,34 @@ const overallSlice = createSlice({
             state.isLoading = true
         },
         [getSingleCountryData.fulfilled]: (state, {payload}) => {
-            // console.log(payload)
+            console.log(payload)
             state.isLoading = false
             const {
-                flags,
-                name,
-                population,
-                region,
-                subregion,
-                capital,
-                tld,
-                currencies,
-                languages,
+              flags,
+              name,
+              population,
+              region,
+              subregion,
+              capital,
+              tld,
+              currencies,
+              languages,
+              ccn3,
             } = payload[0];
             const bordersInfo = payload.filter((_,i) => i > 0)
             // console.log(bordersInfo)
             state.singleCountryData = {
-                flags,
-                name,
-                population,
-                region,
-                subregion,
-                capital,
-                tld,
-                currencies,
-                languages,
-                bordersInfo
+              flags,
+              name,
+              population,
+              region,
+              subregion,
+              capital,
+              tld,
+              currencies,
+              languages,
+              bordersInfo,
+              ccn3,
             };
         },
         [getSingleCountryData.rejected]: (state) => {
@@ -128,7 +120,6 @@ const overallSlice = createSlice({
         },
         [getCountriesBySearch.fulfilled]: (state, {payload}) => {
             const allCountries = [];
-            // console.log(payload)
             payload.forEach((country) => {
                 const newCountries = {
                     name: country.name,
@@ -137,6 +128,7 @@ const overallSlice = createSlice({
                     capital: country.capital,
                     region: country.region,
                     flags: country.flags,
+                    borders: country.borders
                 };
                 allCountries.push(newCountries);
             });

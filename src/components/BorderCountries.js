@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getBordersFullName, getSingleCountryData } from '../toolkit/features/overall/overallSlice'
+import React from 'react'
 import { Link } from "react-router-dom";
-
 
 const BorderCountries = ({borders}) => {
     //

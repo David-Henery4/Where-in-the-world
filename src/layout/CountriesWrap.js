@@ -27,10 +27,12 @@ const CountriesWrap = () => {
         <div className="countries-wrap">
           {allCountriesData.length > 0 &&
             checkForFilter().map((temp, i) => {
+              const {borders} = temp
               return (
                 <Link
                   className="countries-link-style"
                   to={`/country/${temp.name.official}`}
+                  state={{borders}}
                   key={temp.id}
                 >
                   <CountryBox {...temp} />;

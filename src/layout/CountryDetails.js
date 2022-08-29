@@ -2,10 +2,13 @@ import React, { useEffect } from 'react'
 import { BorderCountries, CountryInfo, LoadingPage } from '../components';
 import dummyFlag from "../image/canada-flag.jpg";
 import { useSelector, useDispatch } from 'react-redux';
-import {useParams} from "react-router-dom";
+import {useParams, useLocation} from "react-router-dom";
 import { getSingleCountryData } from '../toolkit/features/overall/overallSlice';
 
 const CountryDetails = () => {
+  const location = useLocation()
+  const {borders} = location.state
+  console.log(borders)
     const dispatch = useDispatch()
     const {name} = useParams()
     const { singleCountryData, isLoading } = useSelector(

@@ -18,7 +18,7 @@ function App() {
         <SearchAndFilter/>
         <Routes>
           <Route path="/" element={<CountriesWrap/>}/>
-          <Route path="country/:name" element={<CountryDetails/>}/>
+          <Route path="country/:code" element={<CountryDetails/>}/>
           {/* <CountryDetails/> */}
           {/* <CountriesWrap/> */}
         </Routes>

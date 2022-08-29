@@ -32,7 +32,7 @@ const CountriesWrap = () => {
               return (
                 <Link
                   className="countries-link-style"
-                  to={`/country/${temp.name.common}`}
+                  to={`/country/${ccn3}`}
                   state={{borders}}
                   key={temp.id}
                 >

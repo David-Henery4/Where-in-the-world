@@ -9,12 +9,13 @@ export const fetchAllCountries = async (_, { rejectWithValue }) => {
   }
 };
 
-export const fetchSingleCountryData = async ({name, borders}, { rejectWithValue }) => {
+export const fetchSingleCountryData = async ({code, borders}, { rejectWithValue }) => {
   try {
+    console.log(code)
     const urls = [];
-    urls.push(baseFetch(`name/${name}`))
+    urls.push(baseFetch(`alpha/${code}`));
     borders.forEach((n) => {
-      const str = baseFetch(`alpha/${n}?fields=name,borders`);
+      const str = baseFetch(`alpha/${n}?fields=name,borders,ccn3`);
       urls.push(str);
     });
     const res = await Promise.all(urls)
@@ -27,7 +28,9 @@ export const fetchSingleCountryData = async ({name, borders}, { rejectWithValue 
 
 export const fetchCountriesBySearch = async (searchQuery, {rejectWithValue}) => {
     try {
-        const res = await baseFetch(`name/${searchQuery}?fields=name,population,flags,region,capital,borders`);
+        const res = await baseFetch(
+          `name/${searchQuery}?fields=name,population,flags,region,capital,borders,ccn3`
+        );
         return res.data
     } catch (error) {
         return rejectWithValue(error.response.data)

@@ -122,13 +122,14 @@ const overallSlice = createSlice({
             const allCountries = [];
             payload.forEach((country) => {
                 const newCountries = {
-                    name: country.name,
-                    id: uuid(),
-                    population: country.population,
-                    capital: country.capital,
-                    region: country.region,
-                    flags: country.flags,
-                    borders: country.borders
+                  name: country.name,
+                  id: uuid(),
+                  population: country.population,
+                  capital: country.capital,
+                  region: country.region,
+                  flags: country.flags,
+                  borders: country.borders,
+                  ccn3: country.ccn3,
                 };
                 allCountries.push(newCountries);
             });

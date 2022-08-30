@@ -109,8 +109,9 @@ const overallSlice = createSlice({
               ccn3,
             };
         },
-        [getSingleCountryData.rejected]: (state) => {
+        [getSingleCountryData.rejected]: (state, {payload}) => {
             state.isLoading = false
+            console.log(payload)
         },
         //
         // Get Country by search
@@ -138,7 +139,7 @@ const overallSlice = createSlice({
         },
         [getCountriesBySearch.rejected]: (state, {payload}) => {
             state.isLoading = false
-            console.log(payload)
+            // console.log(payload)
         },
     }
 });

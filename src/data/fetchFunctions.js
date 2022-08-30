@@ -12,22 +12,27 @@ export const fetchAllCountries = async (_, { rejectWithValue }) => {
 export const fetchSingleCountryData = async ({code, borders}, { rejectWithValue }) => {
   try {
     console.log(code)
+    console.log(borders)
     const urls = [];
     urls.push(baseFetch(`alpha/${code}`));
-    borders.forEach((n) => {
-      const str = baseFetch(`alpha/${n}?fields=name,borders,ccn3`);
-      urls.push(str);
-    });
+    if (borders){
+      borders.forEach((n) => {
+        const str = baseFetch(`alpha/${n}?fields=name,borders,ccn3`);
+        urls.push(str);
+      });
+    }
     const res = await Promise.all(urls)
     const data = res.map(res => res.data)
     return data.flat()
   } catch (error) {
+    console.error(error)
     return rejectWithValue(error.response.data);
   }
 };
 
 export const fetchCountriesBySearch = async (searchQuery, {rejectWithValue}) => {
     try {
+      // console.log(searchQuery)
         const res = await baseFetch(
           `name/${searchQuery}?fields=name,population,flags,region,capital,borders,ccn3`
         );

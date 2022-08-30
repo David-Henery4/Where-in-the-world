@@ -3,14 +3,19 @@ import { CountryBox, LoadingPage } from '../components'
 import { tempCountryData } from '../dummyData/tempCountryData'
 import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
-import { getAllCountries } from "../toolkit/features/overall/overallSlice";
+import { getAllCountries, changeCountriesIndex } from "../toolkit/features/overall/overallSlice";
 
 const CountriesWrap = () => {
-  const [countriesIndex,setCountriesIndex] = useState(0)
+  // const [countriesIndex,setCountriesIndex] = useState(0)
   const [countries, setCountries] = useState([])
   const [allCountries, setAllCountries] = useState([])
-  const { allCountriesData, isFilterActive, filteredCountriesData, isLoading } =
-    useSelector((store) => store.overall);
+  const {
+    allCountriesData,
+    isFilterActive,
+    filteredCountriesData,
+    isLoading,
+    countriesIndex,
+  } = useSelector((store) => store.overall);
   const dispatch = useDispatch()
   //
   const checkForFilter = () => {
@@ -23,7 +28,7 @@ const CountriesWrap = () => {
     const pages = Math.ceil(checkForFilter().length / countriesShownAtOnce)
     const newScroll = Array.from({length: pages}, (_,i) => {
       const start = i * countriesShownAtOnce
-      return checkForFilter().slice(start, start+ countriesShownAtOnce)
+      return checkForFilter().slice(start, start + countriesShownAtOnce)
     })
     const initialCountries = newScroll[0]
     setCountries(initialCountries)
@@ -33,8 +38,9 @@ const CountriesWrap = () => {
   const addNewCountries = () => {
     if (allCountriesData){
       if (countriesIndex > countries.length) return
+      dispatch(changeCountriesIndex("inc"))
       setCountries(country => {
-        setCountriesIndex(countriesIndex + 1)
+        // setCountriesIndex(countriesIndex + 1)
         return [country, ...allCountries[countriesIndex + 1]].flat()
       })
     }

@@ -7,6 +7,7 @@ const initialState = {
     isLoading: false,
     isFilterMenuActive: false,
     isFilterActive: false,
+    countriesIndex: 0,
     allCountriesData: [],
     filteredCountriesData: [],
     singleCountryData: {},
@@ -29,6 +30,14 @@ const overallSlice = createSlice({
         },
         closeFilterMenu: (state) => {
             state.isFilterMenuActive = false
+        },
+        changeCountriesIndex: (state, {payload}) => {
+            if(payload === "inc"){
+                state.countriesIndex = state.countriesIndex + 1
+            }
+            if (payload === "reset"){
+                state.countriesIndex = 0
+            }
         },
         filterCountries: (state, {payload}) => {
             if (payload){
@@ -144,7 +153,7 @@ const overallSlice = createSlice({
     }
 });
 
-export const {toggleFilterMenu, closeFilterMenu, filterCountries} = overallSlice.actions
+export const {toggleFilterMenu, closeFilterMenu, filterCountries, changeCountriesIndex, setCountriesPages, setCountriesShown} = overallSlice.actions
 
 export default overallSlice.reducer
 

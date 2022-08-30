@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFilterMenu, closeFilterMenu, filterCountries, getAllCountries } from '../toolkit/features/overall/overallSlice';
+import { toggleFilterMenu, closeFilterMenu, filterCountries, getAllCountries, changeCountriesIndex } from '../toolkit/features/overall/overallSlice';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 // ADD CLEAR FILTER BTN TO THE OPTIONS!!!!!!
 
 const Filter = () => {
   const [filterValue, setFilterValue] = useState("");
-  const { isFilterMenuActive } = useSelector((store) => store.overall);
+  const { isFilterMenuActive, countriesIndex } = useSelector((store) => store.overall);
   const dispatch = useDispatch()
   //
   const handleFilterClick = () => {
@@ -66,6 +66,7 @@ const Filter = () => {
             onClick={() => {
               dispatch(getAllCountries())
               setFilterValue("")
+              dispatch(changeCountriesIndex("reset"))
             }}
           >
             Reset

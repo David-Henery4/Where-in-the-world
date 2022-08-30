@@ -22,7 +22,7 @@ const SearchInput = () => {
   const handleSearch = (searchQuery) => {
     if (searchQuery === "") {
       dispatch(getAllCountries())
-      console.log("All countries")
+      // console.log("All countries")
     }
     if (searchQuery){
       dispatch(getCountriesBySearch(searchQuery))

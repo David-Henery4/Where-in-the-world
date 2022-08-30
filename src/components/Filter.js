@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFilterMenu, closeFilterMenu, filterCountries } from '../toolkit/features/overall/overallSlice';
+import { toggleFilterMenu, closeFilterMenu, filterCountries, getAllCountries } from '../toolkit/features/overall/overallSlice';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
 // ADD CLEAR FILTER BTN TO THE OPTIONS!!!!!!
@@ -63,7 +63,10 @@ const Filter = () => {
           <div className="option">Oceania</div>
           <button
             className="filter-options__reset"
-            onClick={() => setFilterValue("")}
+            onClick={() => {
+              dispatch(getAllCountries())
+              setFilterValue("")
+            }}
           >
             Reset
           </button>

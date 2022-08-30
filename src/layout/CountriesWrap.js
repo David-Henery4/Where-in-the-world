@@ -42,8 +42,7 @@ const CountriesWrap = () => {
   //
   useEffect(() => {
     itemsPerScroll();
-    // [allCountriesData,filteredCountriesData]
-  }, [])
+  }, [allCountriesData, filteredCountriesData]);
   //
   useEffect(() => {
     dispatch(getAllCountries())
@@ -56,8 +55,8 @@ const CountriesWrap = () => {
       ) : (
     <div className="countries">
         <div className="countries-wrap">
-          {allCountriesData.length > 0 &&
-            checkForFilter().map((temp, i) => {
+          {allCountries.length > 0 &&
+            countries.map((temp, i) => {
               const { borders, ccn3 } = temp;
               return (
                 <Link
@@ -71,7 +70,7 @@ const CountriesWrap = () => {
               );
             })}
         </div>
-      <button onClick={addNewCountries}>More Countries...</button>
+        {allCountries && countriesIndex === allCountries.length - 1 ? <p>No more Countries</p> : <button onClick={addNewCountries}>More Countries...</button>}
     </div>)
     }
     </>

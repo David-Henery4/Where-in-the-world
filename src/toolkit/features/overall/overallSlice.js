@@ -79,7 +79,7 @@ const overallSlice = createSlice({
             state.isLoading = true
         },
         [getSingleCountryData.fulfilled]: (state, {payload}) => {
-            console.log(payload)
+            // console.log(payload)
             state.isLoading = false
             const {
               flags,
@@ -111,7 +111,7 @@ const overallSlice = createSlice({
         },
         [getSingleCountryData.rejected]: (state, {payload}) => {
             state.isLoading = false
-            console.log(payload)
+            // console.log(payload)
         },
         //
         // Get Country by search

@@ -15,7 +15,7 @@ const CountryDetails = () => {
     );
     //
     useEffect(() => {
-      console.log(code)
+      // console.log(code)
       dispatch(getSingleCountryData({code, borders}))
     },[code])
     //

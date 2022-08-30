@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { CountryBox, LoadingPage } from '../components'
-import { tempCountryData } from '../dummyData/tempCountryData'
 import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCountries, changeCountriesIndex } from "../toolkit/features/overall/overallSlice";
 
 const CountriesWrap = () => {
-  // const [countriesIndex,setCountriesIndex] = useState(0)
   const [countries, setCountries] = useState([])
   const [allCountries, setAllCountries] = useState([])
   const {
@@ -40,7 +38,6 @@ const CountriesWrap = () => {
       if (countriesIndex > countries.length) return
       dispatch(changeCountriesIndex("inc"))
       setCountries(country => {
-        // setCountriesIndex(countriesIndex + 1)
         return [country, ...allCountries[countriesIndex + 1]].flat()
       })
     }

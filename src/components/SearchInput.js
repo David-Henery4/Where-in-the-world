@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {BsSearch} from "react-icons/bs"
-import { getCountriesBySearch, getAllCountries } from '../toolkit/features/overall/overallSlice'
+import { getCountriesBySearch, getAllCountries, changeCountriesIndex } from '../toolkit/features/overall/overallSlice'
 import { useDispatch } from 'react-redux/es/exports'
 
 const SearchInput = () => {
@@ -9,20 +9,12 @@ const SearchInput = () => {
   //
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    // might have for the returning from single page search issue
-    // if (searchValue === "") {
-    //   dispatch(getAllCountries());
-    //   console.log("All countries");
-    // }
-    // if (searchValue) {
-    //   dispatch(getCountriesBySearch(searchValue));
-    // }
   }
   //
   const handleSearch = (searchQuery) => {
     if (searchQuery === "") {
       dispatch(getAllCountries())
-      // console.log("All countries")
+      dispatch(changeCountriesIndex("reset"))
     }
     if (searchQuery){
       dispatch(getCountriesBySearch(searchQuery))

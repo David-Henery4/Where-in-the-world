@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFilterMenu, closeFilterMenu, filterCountries, getAllCountries, changeCountriesIndex } from '../toolkit/features/overall/overallSlice';
+import { toggleFilterMenu, filterCountries, getAllCountries, changeCountriesIndex } from '../toolkit/features/overall/overallSlice';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
-
-// ADD CLEAR FILTER BTN TO THE OPTIONS!!!!!!
 
 const Filter = () => {
   const [filterValue, setFilterValue] = useState("");
-  const { isFilterMenuActive, countriesIndex } = useSelector((store) => store.overall);
+  const { isFilterMenuActive} = useSelector((store) => store.overall);
   const dispatch = useDispatch()
   //
   const handleFilterClick = () => {
@@ -17,28 +15,12 @@ const Filter = () => {
   const selectFilterValue = (e) => {
     if (!e.target.closest(".option")) return
     setFilterValue(e.target.innerText);
+    dispatch(changeCountriesIndex("reset"));
   };
   //
   useEffect(() => {
     dispatch(filterCountries(filterValue));
   }, [filterValue])
-  //
-  useEffect(() => {
-    // trying to close when not clicking the filters
-    // also set up close when going to single page.
-    // document.body.addEventListener("click", (e) => {
-    //   if (e.target.closest(".filter") || e.target.closest(".filter-options")){
-    //     // dispatch(closeFilterMenu())
-    //     // console.log("string")
-    //   }
-    //   // console.log("no")
-    // })
-    // return () => {
-    //   document.body.removeEventListener("click", (e) => {
-    //     console.log(e.target);
-    //   });
-    // }
-  }, [])
   //
   return (
     <div className="filter" onClick={handleFilterClick}>

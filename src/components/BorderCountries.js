@@ -10,7 +10,6 @@ const BorderCountries = ({borders}) => {
         <div className="border-countries-btns">
             {borders && borders.map((border, i) => {
               const { borders, ccn3 } = border;
-              // console.log(border)
             return (
               <Link key={i} to={`/country/${ccn3}`} state={{ borders }}>
                 <button className="border-countries__btn" key={i}>

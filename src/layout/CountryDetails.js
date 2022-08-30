@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { BorderCountries, CountryInfo, LoadingPage } from '../components';
-import dummyFlag from "../image/canada-flag.jpg";
 import { useSelector, useDispatch } from 'react-redux';
 import {useParams, useLocation} from "react-router-dom";
-import { getSingleCountryData } from '../toolkit/features/overall/overallSlice';
+import { getSingleCountryData, changeCountriesIndex } from '../toolkit/features/overall/overallSlice';
 
 const CountryDetails = () => {
   const location = useLocation()
@@ -15,7 +14,10 @@ const CountryDetails = () => {
     );
     //
     useEffect(() => {
-      // console.log(code)
+      dispatch(changeCountriesIndex("reset"))
+    }, [location.pathname]);
+    //
+    useEffect(() => {
       dispatch(getSingleCountryData({code, borders}))
     },[code])
     //

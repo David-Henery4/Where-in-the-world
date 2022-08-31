@@ -5,18 +5,12 @@ import { BsMoonFill, BsMoon } from "react-icons/bs";
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const {isDarkMode} = useSelector(store => store.overall)
+  const {isDarkMode, theme} = useSelector(store => store.overall)
   //
   const switchingThemes = () => {
-    dispatch(toggleDarkMode())
-    if (isDarkMode) {
-      // set to "darkMode"
-      dispatch(setTheme("darkMode"))
-    }
-    if (!isDarkMode){
-      // set to "lightMode"
-      dispatch(setTheme("lightMode"))
-    }
+    theme === "lightMode"
+      ? dispatch(setTheme("darkMode"))
+      : dispatch(setTheme("lightMode"))
   }
   //
   // useEffect(() => {
@@ -28,7 +22,10 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-content">
         <h1 className="navbar__logo">Where in the World?</h1>
-        <div className="navbar-mode" onClick={switchingThemes}>
+        <div className="navbar-mode" onClick={() => {
+          dispatch(toggleDarkMode())
+          switchingThemes()
+          }}>
           {isDarkMode ? (
             <BsMoonFill className="navbar-mode__icon" />
           ) : (

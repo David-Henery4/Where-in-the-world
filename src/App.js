@@ -8,12 +8,13 @@ import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch()
-  const { theme } = useSelector((store) => store.overall);
+  const { theme, isDarkMode } = useSelector((store) => store.overall);
   //
-      useEffect(() => {
-        document.documentElement.className = theme;
-        localStorage.setItem("theme", theme);
-      }, [theme]);
+  useEffect(() => {
+  document.documentElement.className = theme;
+  localStorage.setItem("theme", theme);
+  // localStorage.setItem("theme-toggle", isDarkMode)
+  }, [theme]);
   //
   useEffect(() => {
     dispatch(getAllCountries())

@@ -17,18 +17,19 @@ const SearchAndFilter = () => {
     },[location.pathname])
     // 
     return (
-        <div className='search-filter-container'>
-            {filterActive ? 
-            <>
-                <SearchInput/> 
-                <Filter/> 
-            </> : 
-            <Link to="/">
-                <BackBtn/>
-            </Link>
-            }
-        </div>
-    )
+      <div className="search-filter-container">
+        {filterActive ? (
+          <>
+            <SearchInput />
+            <Filter />
+          </>
+        ) : (
+          <Link to="/" className="search-filter-container__link">
+            <BackBtn />
+          </Link>
+        )}
+      </div>
+    );
 }
 
 export default SearchAndFilter

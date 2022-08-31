@@ -11,7 +11,7 @@ const BorderCountries = ({borders}) => {
             {borders && borders.map((border, i) => {
               const { borders, ccn3 } = border;
             return (
-              <Link key={i} to={`/country/${ccn3}`} state={{ borders }}>
+              <Link className='border-countries__link' key={i} to={`/country/${ccn3}`} state={{ borders }}>
                 <button className="border-countries__btn" key={i}>
                   {border.name.common}
                 </button>

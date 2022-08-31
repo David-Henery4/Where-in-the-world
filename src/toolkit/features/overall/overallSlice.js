@@ -38,6 +38,9 @@ const overallSlice = createSlice({
   name: "overall",
   initialState,
   reducers: {
+    toggleDarkMode: (state) => {
+      state.isDarkMode = !state.isDarkMode
+    },
     toggleFilterMenu: (state) => {
       state.isFilterMenuActive = !state.isFilterMenuActive;
     },
@@ -166,6 +169,7 @@ export const {
   closeFilterMenu,
   filterCountries,
   changeCountriesIndex,
+  toggleDarkMode,
 } = overallSlice.actions;
 
 export default overallSlice.reducer;

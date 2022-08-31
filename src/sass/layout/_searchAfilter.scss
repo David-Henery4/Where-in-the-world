@@ -1,19 +1,28 @@
-.search-filter-container{
-    width: 100%;
-    max-width: 445px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 1.5rem;
-    gap: 40px;
-    @include respon (tab){
-        flex-direction: row;
-        max-width: 666px;
-        margin: 0 auto;
-        padding: 4rem 1.5rem;
+.search-filter-container {
+  width: 100%;
+  max-width: 445px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem;
+  gap: 40px;
+  &__link,
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    font-family: $fontFamily;
+    &:hover{
+    cursor: pointer;
     }
-    @include respon (smllap){
-        max-width: 1349px;
-    }
+  }
+  @include respon(tab) {
+    flex-direction: row;
+    max-width: 666px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+  @include respon(smllap) {
+    max-width: 1349px;
+  }
 }

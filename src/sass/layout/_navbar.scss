@@ -29,11 +29,14 @@
   &-mode {
     font-size: 1.3rem;
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    &:hover{
+      cursor: pointer;
+    }
     &__icon {
       margin-right: 10px;
-    }
-    &__status {
-      display: inline;
+      font-size: 1.2rem;
     }
   }
 }

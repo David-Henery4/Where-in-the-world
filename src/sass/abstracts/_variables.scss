@@ -1,5 +1,21 @@
 // COLOURS
 
+//****************CSS-VARIABLES**********************
+:root{
+    --lightModeText: hsl(200, 15%, 8%);
+    --lightModeInput: hsl(0, 0%, 52%);
+    --lightModeBackground: hsl(0, 0%, 98%);
+    --lightModeElements: hsl(0, 0%, 100%);
+}
+
+.darkMode{
+    --darkModeBackground: hsl(207, 26%, 17%);
+    --darkModeElements:hsl(209, 23%, 22%);
+    --darkModeText: hsl(0, 0%, 100%);
+}
+
+
+//****************SASS-VARIABLES**************
 // **Dark Mode**
 
 // Dark Mode Elements
@@ -7,12 +23,15 @@ $darkBlue:hsl(209, 23%, 22%);
 // Dark Mode Background
 $veryDarkBlue:hsl(207, 26%, 17%);
 
+
 // **Light Mode**
 
 // Light Mode Text
 $lightModeTextDarkBlue: hsl(200, 15%, 8%);
+
 // Light Mode Input
 $darkGrey: hsl(0, 0%, 52%);
+
 // Light Mode Background
 $veryLightGrey: hsl(0, 0%, 98%);
 

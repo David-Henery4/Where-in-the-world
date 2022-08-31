@@ -2,7 +2,7 @@
     padding: 1.5rem;
     &-link-style:link,
     &-link-style:visited{
-        color: black;
+        color: var(--lightModeText);
         text-transform: capitalize;
         text-decoration: none;
     }

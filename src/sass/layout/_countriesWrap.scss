@@ -1,11 +1,12 @@
 .countries {
   padding: 0 1.5rem 1.5rem;
   &__more-btn{
-    margin: 2rem auto;
+    color: var(--text);
+    margin: 4rem auto;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--lightModeElements);
+    background-color: var(--elements);
     border: none;
     padding: 8px 20px;
     border-radius: 5px;
@@ -16,12 +17,13 @@
     }
   }
   &__no-more-btn{
-    margin: 2rem auto;
+    margin: 4rem auto;
     text-align: center;
+    color: var(--text);
   }
   &-link-style:link,
   &-link-style:visited {
-    color: var(--lightModeText);
+    color: var(--text);
     text-transform: capitalize;
     text-decoration: none;
   }

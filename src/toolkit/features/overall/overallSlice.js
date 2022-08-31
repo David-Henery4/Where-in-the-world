@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import getTheme from "../../../theme/getTheme";
 import {
   fetchAllCountries,
   fetchSingleCountryData,
@@ -6,7 +7,10 @@ import {
 } from "../../../data";
 import { v4 as uuid } from "uuid";
 
+
+
 const initialState = {
+  theme: getTheme(),
   isDarkMode: false,
   isLoading: false,
   isFilterMenuActive: false,
@@ -38,6 +42,9 @@ const overallSlice = createSlice({
   name: "overall",
   initialState,
   reducers: {
+    setTheme: (state, {payload}) => {
+    state.theme = payload
+    },
     toggleDarkMode: (state) => {
       state.isDarkMode = !state.isDarkMode
     },
@@ -170,6 +177,7 @@ export const {
   filterCountries,
   changeCountriesIndex,
   toggleDarkMode,
+  setTheme
 } = overallSlice.actions;
 
 export default overallSlice.reducer;

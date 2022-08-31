@@ -1,4 +1,20 @@
 body{
     font-family: $fontFamily;
-    color: var(--lightModeText);
+    color: var(--text);
+}
+
+::placeholder{
+    color: var(--text);
+}
+
+::-webkit-input-placeholder {
+    color: var(--text);
+}
+
+::-moz-placeholder {
+    color: var(--text);
+}
+
+::-ms-placeholder {
+    color: var(--text);
 }

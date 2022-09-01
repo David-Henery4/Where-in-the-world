@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CountryBox, LoadingPage } from "../components";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  changeCountriesIndex,
-} from "../toolkit/features/overall/overallSlice";
+import { changeCountriesIndex } from "../toolkit/features/overall/overallSlice";
 
 const CountriesWrap = () => {
   const [countries, setCountries] = useState([]);
@@ -70,10 +68,11 @@ const CountriesWrap = () => {
                     className="countries-link-style"
                     to={`/country/${ccn3}`}
                     state={{ borders }}
-                    key={i}>
+                    key={i}
+                  >
                     <CountryBox {...temp} />
                   </Link>
-                )
+                );
               })}
           </div>
           {allCountries && countriesIndex === allCountries.length - 1 ? (

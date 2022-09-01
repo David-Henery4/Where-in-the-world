@@ -4,6 +4,7 @@ import {
   SearchAndFilter,
   CountriesWrap,
   CountryDetails,
+  NoPageFound,
 } from "./layout";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCountries } from "./toolkit/features/overall/overallSlice";
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<CountriesWrap />} />
           <Route path="country/:code" element={<CountryDetails />} />
+          <Route path="*" element={<NoPageFound/>}/>
         </Routes>
       </BrowserRouter>
     </div>

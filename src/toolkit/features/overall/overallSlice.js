@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {toast} from "react-toastify"
 import {getTheme} from "../../../theme/getTheme";
 import {
   fetchAllCountries,
@@ -101,8 +102,10 @@ const overallSlice = createSlice({
       state.allCountriesData = allCountries;
       state.isLoading = false;
     },
-    [getAllCountries.rejected]: (state) => {
+    [getAllCountries.rejected]: (state, {payload}) => {
       state.isLoading = false;
+      console.error(payload)
+      toast.error(payload.message)
     },
     //
     // single country
@@ -141,6 +144,8 @@ const overallSlice = createSlice({
     },
     [getSingleCountryData.rejected]: (state, { payload }) => {
       state.isLoading = false;
+      console.error(payload)
+      toast.error(payload.message);
     },
     //
     // Get Country by search
@@ -168,6 +173,7 @@ const overallSlice = createSlice({
     },
     [getCountriesBySearch.rejected]: (state, { payload }) => {
       state.isLoading = false;
+      // console.error(payload)
     },
   },
 });

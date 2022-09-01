@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import "react-toastify/dist/ReactToastify.css";
 import "./sass/styles.scss";
 import App from './App';
 import { store } from './toolkit/store';

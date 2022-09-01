@@ -23,7 +23,6 @@ export const fetchSingleCountryData = async ({code, borders}, { rejectWithValue 
     const data = res.map(res => res.data)
     return data.flat()
   } catch (error) {
-    console.error(error)
     return rejectWithValue(error.response.data);
   }
 };

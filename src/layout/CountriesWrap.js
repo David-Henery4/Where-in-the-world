@@ -3,7 +3,6 @@ import { CountryBox, LoadingPage } from "../components";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  getAllCountries,
   changeCountriesIndex,
 } from "../toolkit/features/overall/overallSlice";
 
@@ -51,10 +50,10 @@ const CountriesWrap = () => {
     // eslint-disable-next-line
   }, [allCountriesData, filteredCountriesData]);
   //
-  useEffect(() => {
-    dispatch(getAllCountries());
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getAllCountries());
+  //   // eslint-disable-next-line
+  // }, []);
   //
   return (
     <>

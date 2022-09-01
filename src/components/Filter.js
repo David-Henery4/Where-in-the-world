@@ -22,11 +22,6 @@ const Filter = () => {
   };
   //
   useEffect(() => {
-    if (country) dispatch(toggleFilterMenu())
-    // eslint-disable-next-line
-  }, [location.pathname])
-  //
-  useEffect(() => {
     dispatch(filterCountries(filterValue));
     // eslint-disable-next-line
   }, [filterValue])

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { toggleFilterMenu, filterCountries, getAllCountries, changeCountriesIndex } from '../toolkit/features/overall/overallSlice';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
@@ -7,6 +8,8 @@ const Filter = () => {
   const [filterValue, setFilterValue] = useState("");
   const { isFilterMenuActive} = useSelector((store) => store.overall);
   const dispatch = useDispatch()
+  const location = useLocation()
+  const country = location.pathname.includes("country");
   //
   const handleFilterClick = () => {
     dispatch(toggleFilterMenu());
@@ -17,6 +20,11 @@ const Filter = () => {
     setFilterValue(e.target.innerText);
     dispatch(changeCountriesIndex("reset"));
   };
+  //
+  useEffect(() => {
+    if (country) dispatch(toggleFilterMenu())
+    // eslint-disable-next-line
+  }, [location.pathname])
   //
   useEffect(() => {
     dispatch(filterCountries(filterValue));

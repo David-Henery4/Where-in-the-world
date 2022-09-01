@@ -1,5 +1,4 @@
 import React from 'react'
-import dummyFlag from "../image/canada-flag.jpg"
 
 const CountryBox = ({name,flags,population,region,capital}) => {
   

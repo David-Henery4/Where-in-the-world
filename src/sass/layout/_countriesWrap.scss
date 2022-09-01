@@ -33,8 +33,7 @@
     max-width: 1349px;
     margin: 0 auto;
     grid-template-columns: repeat(auto-fit, minmax(290px, 290px));
-    // justify-items: center;
     justify-content: center;
-    gap: 3.5rem; // increase by one on 1295
+    gap: 3.5rem;
   }
 }

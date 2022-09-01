@@ -1,31 +1,32 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode, setTheme } from "../toolkit/features/overall/overallSlice";
+import {
+  toggleDarkMode,
+  setTheme,
+} from "../toolkit/features/overall/overallSlice";
 import { BsMoonFill, BsMoon } from "react-icons/bs";
 
 const Navbar = () => {
-  const dispatch = useDispatch()
-  const {isDarkMode, theme} = useSelector(store => store.overall)
+  const dispatch = useDispatch();
+  const { isDarkMode, theme } = useSelector((store) => store.overall);
   //
   const switchingThemes = () => {
     theme === "lightMode"
       ? dispatch(setTheme("darkMode"))
-      : dispatch(setTheme("lightMode"))
-  }
-  //
-  // useEffect(() => {
-  //   switchingThemes();
-  //   // eslint-disable-next-line
-  // }, [isDarkMode])
+      : dispatch(setTheme("lightMode"));
+  };
   //
   return (
     <nav className="navbar">
       <div className="navbar-content">
         <h1 className="navbar__logo">Where in the World?</h1>
-        <div className="navbar-mode" onClick={() => {
-          dispatch(toggleDarkMode())
-          switchingThemes()
-          }}>
+        <div
+          className="navbar-mode"
+          onClick={() => {
+            dispatch(toggleDarkMode());
+            switchingThemes();
+          }}
+        >
           {isDarkMode ? (
             <BsMoonFill className="navbar-mode__icon" />
           ) : (

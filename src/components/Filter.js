@@ -20,6 +20,7 @@ const Filter = () => {
   //
   useEffect(() => {
     dispatch(filterCountries(filterValue));
+    // eslint-disable-next-line
   }, [filterValue])
   //
   return (

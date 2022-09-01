@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {getTheme, getToggle} from "../../../theme/getTheme";
+import {getTheme} from "../../../theme/getTheme";
 import {
   fetchAllCountries,
   fetchSingleCountryData,
@@ -12,8 +12,6 @@ import { v4 as uuid } from "uuid";
 const initialState = {
   theme: getTheme(),
   isDarkMode: localStorage.getItem("theme-toggle") || false,
-  // isDarkMode: false,
-  // isDarkMode: getToggle(),
   isLoading: false,
   isFilterMenuActive: false,
   isFilterActive: false,

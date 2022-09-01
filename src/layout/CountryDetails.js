@@ -14,11 +14,13 @@ const CountryDetails = () => {
     );
     //
     useEffect(() => {
-      dispatch(changeCountriesIndex("reset"))
+      dispatch(changeCountriesIndex("reset"));
+      // eslint-disable-next-line
     }, [location.pathname]);
     //
     useEffect(() => {
-      dispatch(getSingleCountryData({code, borders}))
+      dispatch(getSingleCountryData({ code, borders }));
+      // eslint-disable-next-line
     },[code])
     //
     return (

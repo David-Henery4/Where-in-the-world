@@ -35,8 +35,8 @@ Users should be able to:
 
 (links to be added)
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor Solution Page](https://www.frontendmentor.io/solutions/countries-cssgrid-sass-react-reactrouter-reduxtoolkit-axios-7KYcQtnkIZ)
+- Live Site URL: [Where in the world?](https://where-abouts-in-the-world.netlify.app/)
 
 ## My process
 

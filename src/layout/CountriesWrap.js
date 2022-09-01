@@ -58,7 +58,7 @@ const CountriesWrap = () => {
       {isLoading ? (
         <LoadingPage />
       ) : (
-        <div className="countries">
+        <main className="countries">
           <div className="countries-wrap">
             {allCountries.length > 0 &&
               countries.map((temp, i) => {
@@ -82,7 +82,7 @@ const CountriesWrap = () => {
               More Countries...
             </button>
           )}
-        </div>
+        </main>
       )}
     </>
   );
